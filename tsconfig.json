@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "_/*": ["./*"],
+      "@images/*": ["./src/assets/images/*"]
     }
   },
   "include": [
