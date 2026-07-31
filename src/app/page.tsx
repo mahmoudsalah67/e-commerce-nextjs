@@ -20,6 +20,9 @@ export default async function Home() {
 
  <i className='fa-solid fa-spinner fa-spin fa-3x text-gray-500'></i>
 
+
+
+
     </div>
     }>
       <Categoriesslider />

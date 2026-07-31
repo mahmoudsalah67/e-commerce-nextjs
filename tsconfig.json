@@ -18,10 +18,10 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "_/*": ["./*"],
-      "@images/*": ["./src/assets/images/*"]
-    }
+   "paths": {
+  "@/*": ["./*"],
+  "@images/*": ["./src/assets/images/*"]
+}
   },
   "include": [
     "next-env.d.ts",
