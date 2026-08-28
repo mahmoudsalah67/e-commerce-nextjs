@@ -1,5 +1,6 @@
-import { getspecifiedproduct } from "_/src/_services/product.services"
+import { getspecifiedproduct } from "@/src/_services/product.services"
 
+ 
   
 
 type Productdetailsprops = {
@@ -7,7 +8,7 @@ type Productdetailsprops = {
 }
 export default async function productdetails({params}:Productdetailsprops){
   
-  const product = await getspecifiedproduct((await params).id)
+  const product = await getspecifiedproduct(((await params).id))
 
 
   return (

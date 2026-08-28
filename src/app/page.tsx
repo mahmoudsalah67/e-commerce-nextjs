@@ -13,6 +13,7 @@ export default async function Home() {
 
   return (
     <> 
+    
     <Homeslider />
 
     <Suspense fallback={ 
@@ -35,3 +36,5 @@ export default async function Home() {
     </>
   );
 }
+ 
+ 

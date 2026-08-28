@@ -1,6 +1,6 @@
-import { getallcategories } from '_/src/_services/Categories.services'
-import React from 'react'
+ import React from 'react'
 import MySwiper from '../myswiper/MySwiper';
+import { getallcategories } from '@/src/_services/Categories.services';
 
 export default async function Categoriesslider() {
 

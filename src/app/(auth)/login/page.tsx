@@ -1,7 +1,15 @@
-import React from 'react'
 
-export default function Login() {
+ import Loginform from './Loginform'
+
+export default function  Register() {
+  
   return (
-    <div className='mt-19'>login</div>
+    <div className='w-3/4 mt-19 mx-auto font-bold' >
+      <h1 className='font-bold text-5xl py-5'>Login:</h1>
+    
+    
+ <Loginform />
+         
+    </div>
   )
 }

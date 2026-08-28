@@ -17,8 +17,7 @@ export async function getspecifiedproduct(id:string): Promise< Producttype | nul
 try{
  const ress = await fetch(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
    const finaldataa = await ress.json();
-   console.log('finaldata' , finaldataa)
-   return finaldataa.data;
+    return finaldataa.data;
 
 }catch(error){
 console.log(error);
