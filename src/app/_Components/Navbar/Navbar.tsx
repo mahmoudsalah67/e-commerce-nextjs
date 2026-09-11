@@ -1,13 +1,25 @@
- 
+ 'use client'
 import Link from 'next/link'
 import React from 'react'
 import logo from '../../../assets/images/freshcart-logo.svg'
 import Image from 'next/image'
+import { signOut, useSession } from 'next-auth/react'
 export default function Navbar() {
+
+ const  session = useSession()
+ console.log('session',session)
+
+ const {data} = useSession() 
+//  session.status
+
+function handlelogout(){
+  signOut({callbackUrl: '/login' , redirect : true})
+}
+
   return (
     
-<nav className=" shadow-2xl bg-gray-300 fixed w-full z-20 top-0  ">
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<nav className=" shadow-2xl bg-gray-300 fixed w-full z-20 top-0">
+  <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Image src={logo} alt="fresh cart" className="h-8" />
      <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
       <span className="sr-only">Open main menu</span>
@@ -22,21 +34,27 @@ export default function Navbar() {
         <li>
           <Link href="/Category" className="block hover:text-green-600  py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Category</Link>
         </li>
-        <li>
-          <Link href="/Brands" className="block hover:text-green-600   py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Brands</Link>
-        </li>
-        <li>
-          <Link href="/Cart" className="block hover:text-green-600   py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Cart</Link>
-        </li>
-        <li>
+      
+{!data && <>
+
+   <li>
           <Link href="/login" className="block hover:text-green-600  py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Login</Link>
         </li>
         <li>
           <Link href="/register" className="block hover:text-green-600  py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Register</Link>
         </li>
+</>}
+
+
+     {data && <>
         <li>
-          <span  className="block hover:text-green-600  cursor-pointer py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Logout</span>
+          <Link href="/Cart" className="block hover:text-green-600   py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Cart</Link>
         </li>
+     
+        <li>
+          <span onClick={handlelogout} className="block hover:text-green-600  cursor-pointer py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Logout</span>
+        </li>
+     </>}
       </ul>
     </div>
   </div>

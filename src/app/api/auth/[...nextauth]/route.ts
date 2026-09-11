@@ -59,6 +59,9 @@ export const nextauthconfig: NextAuthOptions = {
       return session;
     },
   },
+
+
+   
 };
 
 const handler = NextAuth(nextauthconfig);

@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 import Navbar from "./_Components/Navbar/Navbar";
 import Footer from "./_Components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { SessionProvider } from "next-auth/react";
+import Sessionprovider from "./_Components/Sessionprovider/Sessionprovider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,10 +34,15 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col">
-        <Navbar/>
+       <Sessionprovider >
+
+          <Navbar/>
         <main className="flex-grow">{children}</main>
         <Toaster richColors position="top-right" />
         <Footer/>
+
+       </Sessionprovider>
+      
         </body>
     </html>
   );

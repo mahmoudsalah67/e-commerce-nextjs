@@ -18,7 +18,6 @@ category.image
   <div key={category._id} className="text-center">
    </div>
 ))}
-
     </div>
   )
 }
