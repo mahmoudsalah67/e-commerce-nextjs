@@ -2,6 +2,9 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
 export const nextauthconfig: NextAuthOptions = {
+  // إضافة مفتاح السر هنا أساسي لربط التشفير مع ملف البيئة
+  secret: process.env.NEXTAUTH_SECRET,
+
   providers: [
     Credentials({
       name: "fresh-cart",
@@ -9,7 +12,7 @@ export const nextauthconfig: NextAuthOptions = {
         email: {},
         password: {},
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const res = await fetch(
           "https://ecommerce.routemisr.com/api/v1/auth/signin",
           {
@@ -52,16 +55,13 @@ export const nextauthconfig: NextAuthOptions = {
     },
 
     async session({ session, token }) {
-      if (token && session.user) {
-        (session.user as any) = token.user;
+      if (token && session) {
+        (session as any).user = token.user;
         (session as any).accessToken = token.accessToken;
       }
       return session;
     },
   },
-
-
-   
 };
 
 const handler = NextAuth(nextauthconfig);

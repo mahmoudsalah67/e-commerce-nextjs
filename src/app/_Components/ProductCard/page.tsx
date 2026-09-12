@@ -1,6 +1,8 @@
  import React from 'react'
 import { Producttype } from '../../_interfaces/Products'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import AddProductbtn from '../Addproductbtn/AddProductbtn'
 
  export default function ProductCard({ product }: { product: Producttype }) {
   return (
@@ -17,9 +19,13 @@ import Link from 'next/link'
         <p>{product.ratingsAverage} <i className='fa-solid fa-star text-yellow-400'></i></p>
 
 
-      <Link href={`/productdetails/${product.id}`}>
+     <div className="btnn flex justify-between items-center">
+       <Link href={`/productdetails/${product.id}`}>
         <button className="bg-green-500 cursor-pointer text-white px-4 py-2 my-2 rounded hover:bg-green-800 duration-500">view Details</button>
    </Link>
+
+   <AddProductbtn  id={product?.id} />
+     </div>
     </div>
   )
 }
