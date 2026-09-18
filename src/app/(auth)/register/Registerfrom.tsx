@@ -1,16 +1,16 @@
 "use client"
 import React from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { useForm } from 'react-hook-form'
+  import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { schema } from './Registerschema'
 import { RegisterData } from './typeregister'
 import { handleregister } from './server.action'
  import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../../../components/ui/form'
+import { Input } from '../../../../components/ui/input'
+import { Button } from '../../../../components/ui/button'
     
 
 

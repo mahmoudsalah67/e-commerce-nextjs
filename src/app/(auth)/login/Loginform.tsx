@@ -1,9 +1,7 @@
 "use client"
 import React from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+ 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Loginschema } from './Loginschema'
@@ -12,6 +10,9 @@ import { Logindata } from './typelogin'
  import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
+import { Form,  FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../../../components/ui/form'
+import { Input } from '../../../../components/ui/input'
+import { Button } from '../../../../components/ui/button'
     
 
 

@@ -1,13 +1,14 @@
  import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner"
-import Navbar from "./_Components/Navbar/Navbar";
+ import Navbar from "./_Components/Navbar/Navbar";
 import Footer from "./_Components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { SessionProvider } from "next-auth/react";
 import Sessionprovider from "./_Components/Sessionprovider/Sessionprovider";
-
+import { Toaster } from "sonner";
+import { CartContextProvider } from "./Cartcontext/Cartcontext";
+ 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,12 +36,15 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col">
        <Sessionprovider >
+      <CartContextProvider>
+      
 
           <Navbar/>
         <main className="flex-grow">{children}</main>
         <Toaster richColors position="top-right" />
         <Footer/>
 
+      </CartContextProvider>
        </Sessionprovider>
       
         </body>

@@ -1,6 +1,6 @@
 import { decode } from "next-auth/jwt";
 import { cookies } from "next/headers";
-
+  
 export async function getMyUserToken() {
     const cookieStore = await cookies();
 
