@@ -75,8 +75,8 @@ export default async function ProductDetails({ params }: Productdetailsprops) {
             <div className="flex items-center gap-1 bg-amber-50 px-3 py-1 rounded-lg border border-amber-200 text-amber-800 text-sm font-bold">
               <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
               <span>{product?.ratingsAverage}</span>
-              {product?.ratingsQuantity && (
-                <span className="text-xs text-amber-600 font-normal">({product.ratingsQuantity})</span>
+              {product?.ratingsAverage && (
+                <span className="text-xs text-amber-600 font-normal">({product.ratingsAverage})</span>
               )}
             </div>
           </div>
